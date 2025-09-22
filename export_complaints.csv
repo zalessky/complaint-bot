@@ -1,0 +1,4 @@
+﻿id,user_id,status,created_at,category_key,subcategory_id,subcategory_name,latitude,longitude,address,description,assigned_admin_id,route_number,violation_datetime
+1,258031537,in_work,2025-09-22T05:21:35.007027,transport,4,Нарушение графика / игнорирование остановки,,,,sdsbsbwsb,,35,2025-09-22T05:21:13.326750
+2,258031537,in_work,2025-09-22T05:23:18.227331,waste,3,Сброс мусора с ТС,51.510233,46.207939,,Проопаото. Рпол,258031537,,
+3,258031537,not_confirmed,2025-09-22T06:37:12.712542,waste,4,Поврежденные контейнеры,,,,вывиваиавива,,,

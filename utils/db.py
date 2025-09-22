@@ -184,6 +184,10 @@ async def get_complaint_by_id(cid: int) -> Optional[Dict[str, Any]]:
         fetch='one',
     )
 
+async def get_media_file_ids(cid: int) -> list[str]:
+    rows = await execute("SELECT file_id FROM media WHERE complaint_id = ?", (cid,), fetch="all")
+    return [r["file_id"] for r in rows] if rows else []
+
 async def assign_complaint_to_admin(cid: int, aid: int):
     await update_complaint_status(cid, ComplaintStatus.IN_WORK)
     await execute('UPDATE complaints SET assigned_admin_id = ? WHERE id = ?', (aid, cid))
