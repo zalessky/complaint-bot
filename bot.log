@@ -1,0 +1,55 @@
+2025-09-23 20:55:09,958 - INFO - utils.db - Database tables are ready.
+2025-09-23 20:55:09,959 - INFO - utils.db - Bootstrapped 1 superadmins.
+2025-09-23 20:55:09,960 - INFO - __main__ - Database initialized.
+2025-09-23 20:55:09,960 - INFO - __main__ - Starting bot…
+2025-09-23 20:55:09,981 - INFO - aiogram.dispatcher - Start polling
+2025-09-23 20:55:09,995 - INFO - aiogram.dispatcher - Run polling for bot @eng_bus_bot id=8414846189 - 'transport_bot'
+2025-09-23 20:55:17,506 - INFO - aiogram.event - Update id=581042030 is not handled. Duration 4 ms by bot id=8414846189
+/usr/lib/python3.11/asyncio/base_events.py:1923: RuntimeWarning: coroutine 'IsAdminFilter.__call__' was never awaited
+  handle = None  # Needed to break cycles when an exception occurs.
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-09-23 20:55:19,073 - INFO - aiogram.event - Update id=581042031 is not handled. Duration 8 ms by bot id=8414846189
+2025-09-23 20:55:20,478 - INFO - aiogram.event - Update id=581042032 is not handled. Duration 3 ms by bot id=8414846189
+2025-09-23 20:55:20,866 - INFO - aiogram.event - Update id=581042033 is not handled. Duration 4 ms by bot id=8414846189
+2025-09-23 20:55:21,148 - INFO - aiogram.event - Update id=581042034 is not handled. Duration 4 ms by bot id=8414846189
+2025-09-23 20:55:21,928 - INFO - aiogram.event - Update id=581042035 is handled. Duration 56 ms by bot id=8414846189
+2025-09-23 20:55:25,078 - INFO - aiogram.event - Update id=581042036 is handled. Duration 39 ms by bot id=8414846189
+2025-09-23 20:55:26,967 - INFO - aiogram.event - Update id=581042037 is handled. Duration 37 ms by bot id=8414846189
+2025-09-23 21:01:15,454 - INFO - aiogram.event - Update id=581042038 is handled. Duration 136 ms by bot id=8414846189
+2025-09-23 21:01:16,553 - INFO - aiogram.event - Update id=581042039 is handled. Duration 48 ms by bot id=8414846189
+2025-09-23 21:01:17,112 - INFO - aiogram.event - Update id=581042040 is handled. Duration 71 ms by bot id=8414846189
+2025-09-23 21:01:17,844 - INFO - aiogram.event - Update id=581042041 is handled. Duration 72 ms by bot id=8414846189
+2025-09-23 21:04:41,363 - INFO - aiogram.event - Update id=581042042 is handled. Duration 1081 ms by bot id=8414846189
+2025-09-23 21:07:14,952 - INFO - aiogram.event - Update id=581042043 is handled. Duration 67 ms by bot id=8414846189
+2025-09-23 21:07:17,206 - INFO - aiogram.event - Update id=581042044 is handled. Duration 157 ms by bot id=8414846189
+2025-09-23 21:07:24,158 - INFO - aiogram.event - Update id=581042045 is handled. Duration 82 ms by bot id=8414846189
+2025-09-23 21:07:27,072 - INFO - aiogram.event - Update id=581042046 is handled. Duration 129 ms by bot id=8414846189
+2025-09-23 21:07:28,521 - INFO - aiogram.event - Update id=581042047 is handled. Duration 105 ms by bot id=8414846189
+2025-09-23 21:07:31,130 - INFO - aiogram.event - Update id=581042048 is handled. Duration 55 ms by bot id=8414846189
+2025-09-23 21:11:22,992 - INFO - aiogram.event - Update id=581042049 is handled. Duration 62 ms by bot id=8414846189
+2025-09-23 21:11:26,408 - INFO - aiogram.event - Update id=581042050 is handled. Duration 33 ms by bot id=8414846189
+2025-09-23 21:11:29,559 - INFO - aiogram.event - Update id=581042051 is handled. Duration 53 ms by bot id=8414846189
+2025-09-23 21:11:32,663 - INFO - aiogram.event - Update id=581042052 is handled. Duration 41 ms by bot id=8414846189
+2025-09-23 21:11:35,545 - INFO - aiogram.event - Update id=581042053 is handled. Duration 51 ms by bot id=8414846189
+2025-09-23 21:11:41,937 - INFO - aiogram.event - Update id=581042054 is handled. Duration 51 ms by bot id=8414846189
+2025-09-23 21:11:44,896 - INFO - aiogram.event - Update id=581042055 is handled. Duration 106 ms by bot id=8414846189
+2025-09-23 21:11:49,205 - INFO - aiogram.event - Update id=581042056 is handled. Duration 142 ms by bot id=8414846189
+2025-09-23 21:11:52,417 - INFO - aiogram.event - Update id=581042057 is handled. Duration 64 ms by bot id=8414846189
+2025-09-23 21:11:55,160 - INFO - aiogram.event - Update id=581042058 is handled. Duration 99 ms by bot id=8414846189
+2025-09-23 21:12:00,472 - INFO - aiogram.event - Update id=581042059 is handled. Duration 29 ms by bot id=8414846189
+2025-09-24 00:09:59,237 - INFO - aiogram.event - Update id=581042060 is handled. Duration 2088 ms by bot id=8414846189
+2025-09-24 00:10:02,925 - INFO - aiogram.event - Update id=581042061 is handled. Duration 85 ms by bot id=8414846189
+2025-09-24 00:10:07,267 - INFO - aiogram.event - Update id=581042062 is handled. Duration 65 ms by bot id=8414846189
+2025-09-24 00:10:32,295 - INFO - aiogram.event - Update id=581042063 is handled. Duration 71 ms by bot id=8414846189
+2025-09-24 04:20:08,121 - INFO - aiogram.event - Update id=581042064 is handled. Duration 714 ms by bot id=8414846189
+2025-09-24 04:20:47,250 - INFO - aiogram.event - Update id=581042065 is handled. Duration 135 ms by bot id=8414846189
+2025-09-24 04:20:51,969 - INFO - aiogram.event - Update id=581042066 is handled. Duration 35 ms by bot id=8414846189
+2025-09-24 04:20:55,643 - INFO - aiogram.event - Update id=581042067 is handled. Duration 172 ms by bot id=8414846189
+2025-09-24 04:20:58,936 - INFO - aiogram.event - Update id=581042068 is handled. Duration 59 ms by bot id=8414846189
+2025-09-24 04:21:17,722 - INFO - aiogram.event - Update id=581042069 is handled. Duration 60 ms by bot id=8414846189
+2025-09-24 04:22:57,768 - INFO - aiogram.event - Update id=581042070 is handled. Duration 44 ms by bot id=8414846189
+2025-09-24 04:23:28,743 - INFO - aiogram.event - Update id=581042071 is handled. Duration 29 ms by bot id=8414846189
+2025-09-24 04:23:34,887 - INFO - aiogram.event - Update id=581042072 is handled. Duration 45 ms by bot id=8414846189
+2025-09-24 04:43:34,199 - WARNING - aiogram.dispatcher - Received SIGTERM signal
+2025-09-24 04:43:34,330 - INFO - aiogram.dispatcher - Polling stopped for bot @eng_bus_bot id=8414846189 - 'transport_bot'
+2025-09-24 04:43:34,351 - INFO - aiogram.dispatcher - Polling stopped

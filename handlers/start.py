@@ -1,4 +1,4 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 from keyboards.reply import main_menu_keyboard
@@ -12,3 +12,7 @@ async def command_start(message: Message):
 @router.message(Command("menu"))
 async def command_menu(message: Message):
     await message.answer("Главное меню:", reply_markup=main_menu_keyboard())
+
+@router.message(F.text.lower() == "направить благодарность")
+async def handle_gratitude(msg: Message):
+    await msg.answer("Функционал 'благодарности' будет добавлен позже!")
