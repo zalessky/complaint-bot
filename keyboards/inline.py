@@ -4,21 +4,18 @@ from utils.constants import CATEGORIES, ComplaintStatus
 
 class AdminPanelCallback(CallbackData, prefix='admin_panel'):
     action: str
-
 class ComplaintActionCallback(CallbackData, prefix='complaint_action'):
     action: str
     complaint_id: int
-
 class ComplaintStatusCallback(CallbackData, prefix='complaint_status'):
     action: str = 'set_status'
     status: str
     complaint_id: int
 
 def get_categories_keyboard() -> InlineKeyboardMarkup:
-    rows = [
-        [InlineKeyboardButton(text=d['name'], callback_data=f'category_{k}')]
-        for k, d in CATEGORIES.items()
-    ]
+    rows = [[InlineKeyboardButton(text=d['name'], callback_data=f'category_{k}')]
+        for k, d in CATEGORIES.items()]
+    rows.append([InlineKeyboardButton(text="⬅️ Назад", callback_data="cancel_complaint")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 def get_subcategories_keyboard(cat_key: str) -> InlineKeyboardMarkup:
@@ -26,9 +23,7 @@ def get_subcategories_keyboard(cat_key: str) -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text=sd['name'], callback_data=f'subcategory_{sid}')]
         for sid, sd in CATEGORIES[cat_key]['subcategories'].items()
     ]
-    buttons.append([
-        InlineKeyboardButton(text='⬅️ Назад к категориям', callback_data='back_to_categories')
-    ])
+    buttons.append([InlineKeyboardButton(text='⬅️ Назад к категориям', callback_data='back_to_categories')])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def get_location_keyboard() -> InlineKeyboardMarkup:
@@ -113,7 +108,7 @@ def get_help_menu_inline(is_admin=False):
         [InlineKeyboardButton(text="🚀 Запустить бота", callback_data="menu:start")],
         [InlineKeyboardButton(text="📝 Подать обращение", callback_data="menu:complaint")],
         [InlineKeyboardButton(text="🌟 Направить благодарность", callback_data="menu:gratitude")],
-        [InlineKeyboardButton(text="🆘 Справка", callback_data="menu:help")],
+        [InlineKeyboardButton(text="🆘 Справка", callback_data="menu:help")]
     ]
     if is_admin:
         buttons.append([InlineKeyboardButton(text="🛠 Панель администратора", callback_data="menu:panel")])

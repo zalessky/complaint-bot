@@ -1,25 +1,14 @@
 from aiogram import Bot
-from aiogram.types import BotCommand, KeyboardButton, ReplyKeyboardMarkup
+from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
-def main_menu_keyboard() -> ReplyKeyboardMarkup:
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [
-                KeyboardButton(text="Подать жалобу"),
-                KeyboardButton(text="Направить благодарность")
-            ]
-        ],
-        resize_keyboard=True
-    )
-
-def request_location_keyboard() -> ReplyKeyboardMarkup:
-    return ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="📍 Отправить мое местоположение", request_location=True)]], resize_keyboard=True, one_time_keyboard=True)
+def main_menu_keyboard(is_admin=False) -> ReplyKeyboardMarkup:
+    buttons = [
+        [KeyboardButton(text="Подать жалобу"), KeyboardButton(text="Направить благодарность")],
+        [KeyboardButton(text="Справка/О сервисе")]
+    ]
+    if is_admin:
+        buttons.append([KeyboardButton(text="Панель администратора")])
+    return ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
 
 async def set_default_commands(bot: Bot) -> None:
-    commands = [
-        BotCommand(command="start", description="Запустить бота"),
-        BotCommand(command="help", description="Справка"),
-        BotCommand(command="complaint", description="Подать жалобу"),
-        BotCommand(command="panel", description="Панель администратора"),
-    ]
-    await bot.set_my_commands(commands)
+    await bot.set_my_commands([])
