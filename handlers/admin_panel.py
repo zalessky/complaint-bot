@@ -9,7 +9,7 @@ from keyboards.inline import (
     get_complaint_actions_keyboard, ComplaintActionCallback, ComplaintStatusCallback,
     get_status_selection_keyboard
 )
-from keyboards.reply import admin_menu_keyboard # Import the new admin keyboard
+from keyboards.reply import main_menu_keyboard, admin_menu_keyboard
 from middlewares.access_control import IsAdminFilter
 from utils.db import get_admin_details, get_admin_stats, get_complaints_by_status, get_complaint_by_id, update_complaint_status, get_media_by_complaint_id
 from utils.constants import ComplaintStatus, STATUS_LABEL_RU, CATEGORIES
@@ -55,7 +55,7 @@ async def show_complaints_by_status_group(callback: CallbackQuery, callback_data
 
     await callback.message.edit_text(
         f"<b>{title} обращения:</b>",
-        reply_markup=get_complaint_list_keyboard(complaints, current_list_action=callback_data.action)
+        reply_markup=get_complaint_list_keyboard(complaints)
     )
     await callback.answer()
 
@@ -93,9 +93,13 @@ async def view_complaint(callback: CallbackQuery, callback_data: ComplaintAction
 
     if media:
         media_group = [InputMediaPhoto(media=m['file_id']) for m in media]
+        media_group[0].caption = card
+        media_group[0].parse_mode = "HTML"
         await callback.message.answer_media_group(media=media_group)
+        await callback.message.answer("Выберите действие для этого обращения:", reply_markup=get_complaint_actions_keyboard(complaint_id, back_action="back_to_list"))
+    else:
+        await callback.message.answer(card, reply_markup=get_complaint_actions_keyboard(complaint_id, back_action="back_to_list"))
     
-    await callback.message.answer(card, reply_markup=get_complaint_actions_keyboard(complaint_id, back_action="back_to_list"))
     await callback.answer()
 
 @router.callback_query(ComplaintActionCallback.filter(F.action == "change_status"))
@@ -133,8 +137,21 @@ async def back_to_admin_panel(callback: CallbackQuery):
 async def back_to_list_from_view(callback: CallbackQuery, state: FSMContext, bot: Bot):
     await callback.message.delete()
     current_list_action = (await state.get_data()).get('current_list_action', 'show_all')
+    
+    status_map = {
+        "show_new": ("Новые", [ComplaintStatus.NEW.value]),
+        "show_in_work": ("В работе", [ComplaintStatus.IN_WORK.value, ComplaintStatus.CLARIFICATION_NEEDED.value]),
+        "show_completed": ("Завершенные", [ComplaintStatus.RESOLVED.value, ComplaintStatus.REJECTED.value, ComplaintStatus.CLOSED.value]),
+        "show_all": ("Все", [s.value for s in ComplaintStatus])
+    }
+    title, statuses_to_fetch = status_map.get(current_list_action, ("Все", [s.value for s in ComplaintStatus]))
+    
+    complaints = await get_complaints_by_status(statuses_to_fetch)
+    await callback.message.answer(
+        f"<b>{title} обращения:</b>",
+        reply_markup=get_complaint_list_keyboard(complaints)
+    )
     await callback.answer()
-    await show_complaints_by_status_group(callback, AdminPanelCallback(action=current_list_action), state)
 
 @router.message(Command('export'), IsAdminFilter())
 async def export_data(message: Message):

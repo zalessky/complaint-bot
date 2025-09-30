@@ -88,7 +88,7 @@ def get_complaint_list_keyboard(complaints: list) -> InlineKeyboardMarkup:
     buttons.append([InlineKeyboardButton(text='⬅️ Назад в панель', callback_data=AdminPanelCallback(action='back_to_panel').pack())])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
-def get_complaint_actions_keyboard(cid: int) -> InlineKeyboardMarkup:
+def get_complaint_actions_keyboard(cid: int, back_action: str = "back_to_list") -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -97,7 +97,7 @@ def get_complaint_actions_keyboard(cid: int) -> InlineKeyboardMarkup:
                     callback_data=ComplaintActionCallback(action='change_status', complaint_id=cid).pack(),
                 ),
             ],
-            [InlineKeyboardButton(text='⬅️ Назад в панель', callback_data=AdminPanelCallback(action='back_to_panel').pack())]
+            [InlineKeyboardButton(text='⬅️ Назад к списку', callback_data=ComplaintActionCallback(action=back_action, complaint_id=cid).pack())]
         ]
     )
 
@@ -110,4 +110,5 @@ def get_status_selection_keyboard(cid: int) -> InlineKeyboardMarkup:
                 callback_data=ComplaintStatusCallback(status=s.value, complaint_id=cid).pack(),
             )
         ])
+    buttons.append([InlineKeyboardButton(text='⬅️ Назад к обращению', callback_data=ComplaintActionCallback(action='view', complaint_id=cid).pack())])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
