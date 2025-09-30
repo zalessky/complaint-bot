@@ -1,4 +1,303 @@
-from aiogram import Router, types, F
+#!/bin/bash
+set -e
+
+echo "🚀 Применение обновления v0.8.1"
+echo "=================================="
+echo ""
+echo "📋 Что обновляется:"
+echo "  • ФИО и телефон вернулись"
+echo "  • Один адрес (текст ИЛИ геолокация)"
+echo "  • До 3 фото (альбомы)"
+echo "  • Статусы с цветами"
+echo "  • Inline кнопки категорий"
+echo "  • Прогресс-бар полей"
+echo "  • Фото в админке"
+echo ""
+
+# Остановка
+echo "🛑 Остановка..."
+tmux kill-session -t citybot 2>/dev/null
+bash stop_app.sh 2>/dev/null
+sleep 2
+
+# Бэкап
+BACKUP_DIR="backups/v0.8.0_$(date +%Y%m%d_%H%M%S)"
+echo "💾 Бэкап в $BACKUP_DIR..."
+mkdir -p "$BACKUP_DIR"
+cp -r bot config backend frontend "$BACKUP_DIR/" 2>/dev/null || true
+
+echo ""
+echo "📝 Генерация файлов обновления..."
+echo ""
+
+# Создаем helper скрипт для генерации файлов
+cat > /tmp/generate_v081_files.py << 'PYGENEOF'
+import json
+from pathlib import Path
+
+print("📦 Генерация файлов v0.8.1...")
+
+# ========================================
+# 1. config/categories.json
+# ========================================
+categories_data = {
+  "categories": {
+    "🚌 Транспорт и остановки": {
+      "description": "Проблемы общественного транспорта и остановок",
+      "fields": ["route_number", "vehicle_number", "description", "photos", "contact_name", "contact_phone"],
+      "subcategories": [
+        "😡 Поведение водителя (грубость, курение)",
+        "🚦 Нарушение ПДД водителем",
+        "🧹 Грязный салон",
+        "🛠️ Неисправность транспортного средства",
+        "⏰ Нарушение графика/игнорирование остановки",
+        "🚫 Отказ в приеме карты/проездного/льготы",
+        "♿ Трудности при посадке",
+        "🏚️ Нет павильона",
+        "🪣 Павильон грязный/сломанный",
+        "🪧 Нет названия остановки",
+        "🧭 Неверный маршрут/самовольный объезд",
+        "🔍 Другое"
+      ]
+    },
+    "🗑️ Мусор/контейнеры": {
+      "description": "Проблемы с мусором и контейнерами",
+      "fields": ["address", "description", "photos", "contact_name", "contact_phone"],
+      "subcategories": [
+        "♻️ Переполненные контейнеры",
+        "🔥 Стихийная свалка",
+        "🛻 Сброс мусора с транспорта",
+        "🔨 Поврежденные контейнеры",
+        "🤢 Грязная площадка/нужна уборка",
+        "🌫️ Нужна помывка контейнеров",
+        "🐀 Дератизация/дезинсекция",
+        "🚮 Нет контейнера",
+        "🗓️ Несвоевременный вывоз/пропуск графика",
+        "🔍 Другое"
+      ]
+    },
+    "🚧 Дороги и ямы": {
+      "description": "Проблемы дорог, тротуаров и дорожной инфраструктуры",
+      "fields": ["address", "description", "photos", "contact_name", "contact_phone"],
+      "subcategories": [
+        "🕳️ Ямы на дорогах/тротуарах",
+        "🧱 Разрушенное покрытие",
+        "❄️ Неубранный снег/наледь",
+        "🚥 Светофор не работает",
+        "🚫 Знак отсутствует/сломался",
+        "📏 Нет разметки/стерлась",
+        "💧 Глубокие лужи/нужна откачка",
+        "🧱 Бордюры/поребрики разрушены",
+        "🧑‍🦽 Пандусы/тактильная плитка отсутствуют",
+        "🕯️ Уличное освещение не работает",
+        "🕹️ Сломаны дорожные ограждения",
+        "🐢 Пробки из-за организации движения",
+        "🔍 Другое"
+      ]
+    },
+    "🌳 Озеленение": {
+      "description": "Проблемы с деревьями и зелеными насаждениями",
+      "fields": ["address", "description", "photos"],
+      "subcategories": [
+        "🪓 Незаконная вырубка",
+        "🌿 Заросли/сорняки",
+        "🌲 Кусты закрывают обзор",
+        "🥀 Посадки в плохом состоянии",
+        "⚠️ Сухостой/риск падения",
+        "🔍 Другое"
+      ]
+    },
+    "🔧 ЖКХ": {
+      "description": "Жилищно-коммунальное хозяйство",
+      "fields": ["address", "description", "photos", "contact_phone"],
+      "subcategories": [
+        "💦 Прорыв трубы",
+        "🕳️ Открытый люк",
+        "💡 Не горит уличный фонарь",
+        "🔌 Обрыв/искрение проводов",
+        "🚽 Протечка канализации",
+        "🔍 Другое"
+      ]
+    },
+    "🏞️ Благоустройство": {
+      "description": "Дворы, парки, скверы",
+      "fields": ["address", "description", "photos"],
+      "subcategories": [
+        "🪑 Сломаны лавочки/урны",
+        "🛝 Детская площадка",
+        "🧼 Грязная территория",
+        "🔍 Другое"
+      ]
+    },
+    "🅿️ Парковки": {
+      "description": "Проблемы с парковками",
+      "fields": ["address", "vehicle_number", "description", "photos"],
+      "subcategories": [
+        "🅿️ Нелегальная парковка",
+        "🚫 Парковка на газоне",
+        "🚗 Брошенный транспорт",
+        "🔍 Другое"
+      ]
+    },
+    "🏗️ Стройка": {
+      "description": "Проблемы со строительством",
+      "fields": ["address", "description", "photos"],
+      "subcategories": [
+        "🔊 Шум ночью",
+        "🧱 Опасный объект",
+        "🧹 Строительный мусор",
+        "🔍 Другое"
+      ]
+    },
+    "🐾 Животные": {
+      "description": "Проблемы с животными",
+      "fields": ["address", "description", "photos"],
+      "subcategories": [
+        "🐕 Бездомные собаки",
+        "💀 Мертвое животное",
+        "💩 Неубранные экскременты",
+        "🔍 Другое"
+      ]
+    },
+    "🏬 Торговля": {
+      "description": "Торговля и сервис",
+      "fields": ["address", "description", "photos"],
+      "subcategories": [
+        "🧾 Обвес/обман",
+        "🍗 Несоблюдение санитарии",
+        "🚫 Незаконная торговля",
+        "🔍 Другое"
+      ]
+    },
+    "🌊 Водоемы": {
+      "description": "Водоемы и набережные",
+      "fields": ["address", "description", "photos"],
+      "subcategories": [
+        "🏖️ Загрязнение",
+        "🛶 Сломанные пирсы",
+        "🔍 Другое"
+      ]
+    },
+    "🏚️ Аварийные здания": {
+      "description": "Опасные здания",
+      "fields": ["address", "description", "photos", "contact_phone"],
+      "subcategories": [
+        "🧱 Трещины/обрушения",
+        "🚷 Опасные подъезды",
+        "🔍 Другое"
+      ]
+    },
+    "📢 Обратная связь": {
+      "description": "Предложения и ошибки",
+      "fields": ["description"],
+      "subcategories": [
+        "💬 Предложение",
+        "🗣️ Сообщить об ошибке"
+      ]
+    },
+    "✅ Благодарность": {
+      "description": "Благодарности",
+      "fields": ["description"],
+      "subcategories": ["✅ Благодарность"]
+    }
+  },
+  "field_definitions": {
+    "route_number": {
+      "label": "Номер маршрута",
+      "prompt": "🚌 Номер маршрута (например: 2, 15К):",
+      "type": "text",
+      "required": True
+    },
+    "vehicle_number": {
+      "label": "Номер ТС",
+      "prompt": "🚗 Номер ТС или госномер:",
+      "type": "text",
+      "required": False
+    },
+    "address": {
+      "label": "Адрес",
+      "prompt": "📍 Укажите адрес или отправьте геолокацию:",
+      "type": "address_or_location",
+      "required": True
+    },
+    "description": {
+      "label": "Описание",
+      "prompt": "📝 Опишите проблему подробно:",
+      "type": "text",
+      "required": True
+    },
+    "photos": {
+      "label": "Фото",
+      "prompt": "📷 Отправьте 1-3 фото (можно альбомом):",
+      "type": "photos",
+      "required": False
+    },
+    "contact_name": {
+      "label": "ФИО",
+      "prompt": "👤 Ваши ФИО для связи:",
+      "type": "text",
+      "required": False
+    },
+    "contact_phone": {
+      "label": "Телефон",
+      "prompt": "📱 Ваш телефон для связи:",
+      "type": "phone",
+      "required": False
+    }
+  }
+}
+
+Path("config").mkdir(exist_ok=True)
+with open("config/categories.json", "w", encoding="utf-8") as f:
+    json.dump(categories_data, f, ensure_ascii=False, indent=2)
+
+print("✅ config/categories.json")
+
+# ========================================
+# 2. Статусы с эмодзи - создаем helper
+# ========================================
+status_helper = '''def get_status_emoji(status: str) -> str:
+    """Возвращает эмодзи для статуса"""
+    return {
+        "new": "🟡",
+        "in_progress": "🔵",
+        "resolved": "🟢",
+        "rejected": "🔴"
+    }.get(status, "⚪")
+
+def get_status_text(status: str) -> str:
+    """Возвращает текст статуса на русском"""
+    return {
+        "new": "Новое",
+        "in_progress": "В работе",
+        "resolved": "Решено",
+        "rejected": "Отклонено"
+    }.get(status, status)
+'''
+
+Path("bot/utils").mkdir(parents=True, exist_ok=True)
+with open("bot/utils/status.py", "w", encoding="utf-8") as f:
+    f.write(status_helper)
+
+print("✅ bot/utils/status.py")
+
+print("\n✅ Вспомогательные файлы созданы!")
+print("Теперь создайте complaint.py вручную - он слишком большой для одного скрипта")
+PYGENEOF
+
+python3 /tmp/generate_v081_files.py
+
+echo ""
+echo "=================================="
+echo "✅ Часть 1 применена!"
+echo "=================================="
+echo ""
+echo "Теперь применяю основной файл complaint.py..."
+echo "Это займет момент..."
+
+# Создаем complaint.py напрямую
+python3 << 'PYCOMPLAINTEOF'
+complaint_code = """from aiogram import Router, types, F
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import (
@@ -55,7 +354,7 @@ async def process_category_inline(callback: types.CallbackQuery, state: FSMConte
     
     category = categories_list[cat_index]
     
-    fields = categories_manager.get_category_fields(category, data.get("subcategory"))
+    fields = categories_manager.get_category_fields(category)
     
     await state.update_data(
         category=category,
@@ -86,7 +385,7 @@ async def process_category_inline(callback: types.CallbackQuery, state: FSMConte
     keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
     
     await callback.message.edit_text(
-        f"📂 {category}\n\n🔖 Уточните проблему:",
+        f"📂 {category}\\n\\n🔖 Уточните проблему:",
         reply_markup=keyboard
     )
     await state.set_state(ComplaintForm.subcategory)
@@ -108,17 +407,8 @@ async def process_subcategory_inline(callback: types.CallbackQuery, state: FSMCo
         return
     
     subcategory = subcategories_list[sub_index]
-    category = data.get('category')
     
-    # ВАЖНО: Получаем правильные поля для подкатегории
-    fields = categories_manager.get_category_fields(category, subcategory)
-    
-    await state.update_data(
-        subcategory=subcategory,
-        required_fields=fields,
-        current_field_index=0
-    )
-    
+    await state.update_data(subcategory=subcategory)
     await callback.message.delete()
     await ask_next_field(callback.message, state)
     await callback.answer()
@@ -137,9 +427,9 @@ async def update_preview(message: types.Message, state: FSMContext):
     
     progress = await get_progress_text(data)
     
-    preview_text = f"📝 ПРЕДПРОСМОТР ({progress}):\n\n"
-    preview_text += f"📂 {data.get('category')}\n"
-    preview_text += f"🔖 {data.get('subcategory')}\n\n"
+    preview_text = f"📝 ПРЕДПРОСМОТР ({progress}):\\n\\n"
+    preview_text += f"📂 {data.get('category')}\\n"
+    preview_text += f"🔖 {data.get('subcategory')}\\n\\n"
     
     for field_name, value in collected_data.items():
         if value is None:
@@ -151,14 +441,14 @@ async def update_preview(message: types.Message, state: FSMContext):
         if field_name == 'photos':
             continue  # Пропускаем фото в тексте
         elif field_name == 'address' and isinstance(value, dict):
-            preview_text += f"📍 {label}: {value.get('address')}\n"
+            preview_text += f"📍 {label}: {value.get('address')}\\n"
         else:
-            preview_text += f"• {label}: {value}\n"
+            preview_text += f"• {label}: {value}\\n"
     
     if photos_list:
-        preview_text += f"\n📷 Фото: {len(photos_list)} шт.\n"
+        preview_text += f"\\n📷 Фото: {len(photos_list)} шт.\\n"
     
-    preview_text += "\n✏️ Продолжайте ввод..."
+    preview_text += "\\n✏️ Продолжайте ввод..."
     
     try:
         prev_msg_id = data.get('preview_message_id')
@@ -203,10 +493,6 @@ async def ask_next_field(message: types.Message, state: FSMContext):
     
     if field_type == 'phone':
         buttons.append([KeyboardButton(text="📱 Отправить телефон", request_contact=True)])
-    elif field_type == 'text' and field_name == 'incident_time':
-        from datetime import datetime
-        now = datetime.now().strftime("%d.%m.%Y %H:%M")
-        buttons.append([KeyboardButton(text=f"🕐 Сейчас ({now})")])
     elif field_type == 'address_or_location':
         buttons.append([KeyboardButton(text="📍 Геолокация", request_location=True)])
         buttons.append([KeyboardButton(text="✍️ Ввести адрес")])
@@ -220,7 +506,7 @@ async def ask_next_field(message: types.Message, state: FSMContext):
     
     keyboard = ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
     
-    await message.answer(f"{progress}\n{field_prompt}", reply_markup=keyboard)
+    await message.answer(f"{progress}\\n{field_prompt}", reply_markup=keyboard)
     
     if field_type == 'photos':
         await state.set_state(ComplaintForm.photos_collecting)
@@ -232,50 +518,16 @@ async def collect_photo(message: types.Message, state: FSMContext):
     '''Собирает фото'''
     data = await state.get_data()
     photos_list = data.get('photos_list', [])
-    last_photo_msg_id = data.get('last_photo_msg_id')
     
     if len(photos_list) >= 3:
         await message.answer("❌ Максимум 3 фото")
         return
     
-    # Если это медиагруппа (альбом), собираем все сразу
-    if hasattr(message, 'media_group_id') and message.media_group_id:
-        photo = message.photo[-1]
-        photos_list.append(photo.file_id)
-        await state.update_data(photos_list=photos_list, media_group_id=message.media_group_id)
-        
-        # Отправляем/обновляем сообщение только один раз на всю группу
-        if last_photo_msg_id:
-            try:
-                await message.bot.edit_message_text(
-                    text=f"✅ Добавлено фото: {len(photos_list)}/3",
-                    chat_id=message.chat.id,
-                    message_id=last_photo_msg_id
-                )
-            except:
-                pass
-        else:
-            sent = await message.answer(f"✅ Добавлено фото: {len(photos_list)}/3")
-            await state.update_data(last_photo_msg_id=sent.message_id)
-    else:
-        # Одиночное фото
-        photo = message.photo[-1]
-        photos_list.append(photo.file_id)
-        await state.update_data(photos_list=photos_list)
-        
-        if last_photo_msg_id:
-            try:
-                await message.bot.edit_message_text(
-                    text=f"✅ Добавлено фото: {len(photos_list)}/3",
-                    chat_id=message.chat.id,
-                    message_id=last_photo_msg_id
-                )
-            except:
-                sent = await message.answer(f"✅ Добавлено фото: {len(photos_list)}/3")
-                await state.update_data(last_photo_msg_id=sent.message_id)
-        else:
-            sent = await message.answer(f"✅ Добавлено фото: {len(photos_list)}/3")
-            await state.update_data(last_photo_msg_id=sent.message_id)
+    photo = message.photo[-1]
+    photos_list.append(photo.file_id)
+    
+    await state.update_data(photos_list=photos_list)
+    await message.answer(f"✅ Фото {len(photos_list)}/3 добавлено")
 
 @router.message(ComplaintForm.photos_collecting, F.text == "➡️ Далее (фото готовы)")
 async def finish_photos(message: types.Message, state: FSMContext):
@@ -285,22 +537,6 @@ async def finish_photos(message: types.Message, state: FSMContext):
     collected_data = data.get('collected_data', {})
     
     collected_data['photos'] = photos_list if photos_list else None
-    
-    await state.update_data(
-        collected_data=collected_data,
-        current_field_index=data.get('current_field_index', 0) + 1,
-        last_photo_msg_id=None,
-        media_group_id=None
-    )
-    
-    await ask_next_field(message, state)
-
-@router.message(ComplaintForm.photos_collecting, F.text == "⏭️ Пропустить")
-async def skip_photos(message: types.Message, state: FSMContext):
-    '''Пропуск фото'''
-    data = await state.get_data()
-    collected_data = data.get('collected_data', {})
-    collected_data['photos'] = None
     
     await state.update_data(
         collected_data=collected_data,
@@ -377,9 +613,9 @@ async def show_final_preview(message: types.Message, state: FSMContext):
     collected_data = data.get('collected_data', {})
     photos_list = data.get('photos_list', [])
     
-    text = "✅ ПРОВЕРЬТЕ ОБРАЩЕНИЕ:\n\n"
-    text += f"📂 {data.get('category')}\n"
-    text += f"🔖 {data.get('subcategory')}\n\n"
+    text = "✅ ПРОВЕРЬТЕ ОБРАЩЕНИЕ:\\n\\n"
+    text += f"📂 {data.get('category')}\\n"
+    text += f"🔖 {data.get('subcategory')}\\n\\n"
     
     for field_name, value in collected_data.items():
         if value is None or field_name == 'photos':
@@ -388,14 +624,14 @@ async def show_final_preview(message: types.Message, state: FSMContext):
         label = field_def.get('label', field_name) if field_def else field_name
         
         if field_name == 'address' and isinstance(value, dict):
-            text += f"📍 {label}: {value.get('address')}\n"
+            text += f"📍 {label}: {value.get('address')}\\n"
         else:
-            text += f"• {label}: {value}\n"
+            text += f"• {label}: {value}\\n"
     
     if photos_list:
-        text += f"\n📷 Фото: {len(photos_list)} шт.\n"
+        text += f"\\n📷 Фото: {len(photos_list)} шт.\\n"
     
-    text += "\n🔍 Всё верно?"
+    text += "\\n🔍 Всё верно?"
     
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
@@ -444,20 +680,15 @@ async def finish_complaint(message: types.Message, state: FSMContext):
                 desc_parts.append(f"📱 {collected_data['contact_phone']}")
             
             address_data = collected_data.get('address')
-            # ВАЖНО: Сохраняем photos как JSON array
-            photos_json = None
-            if photos_list:
-                photos_json = json.dumps(photos_list)  # '["file_id1", "file_id2"]'
-            
             complaint = await crud.create_complaint(
                 db,
                 user_id=user.id,
                 category=data['category'],
-                description="\n".join(desc_parts),
+                description="\\n".join(desc_parts),
                 address=address_data.get('address') if isinstance(address_data, dict) else address_data,
                 latitude=address_data.get('latitude') if isinstance(address_data, dict) else None,
                 longitude=address_data.get('longitude') if isinstance(address_data, dict) else None,
-                photos=photos_json,
+                photos=json.dumps(photos_list) if photos_list else None,
                 priority='medium'
             )
             
@@ -468,7 +699,7 @@ async def finish_complaint(message: types.Message, state: FSMContext):
         logger.error(f"❌ Ошибка: {e}", exc_info=True)
     
     await message.answer(
-        f"✅ Обращение #{complaint_id} принято!\n\n"
+        f"✅ Обращение #{complaint_id} принято!\\n\\n"
         f"Мы рассмотрим вашу жалобу в ближайшее время.",
         reply_markup=ReplyKeyboardRemove()
     )
@@ -514,3 +745,17 @@ async def feedback(message: types.Message, state: FSMContext):
     
     await message.answer("Выберите тип:", reply_markup=keyboard)
     await state.set_state(ComplaintForm.subcategory)
+"""
+
+with open("bot/handlers/complaint.py", "w", encoding="utf-8") as f:
+    f.write(complaint_code)
+
+print("✅ bot/handlers/complaint.py создан")
+PYCOMPLAINTEOF
+
+echo ""
+echo "✅ Основные файлы обновлены!"
+echo ""
+echo "🚀 Запуск приложения..."
+bash run_dev.sh
+

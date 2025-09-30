@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from backend.core.config import settings
 from backend.db.database import init_db
-from backend.api.v1 import auth, complaints, users, employees, websocket
+from backend.api.v1 import auth, complaints, users, employees, websocket, photos
 
 logging.basicConfig(
     level=getattr(logging, settings.LOG_LEVEL),
@@ -45,6 +45,7 @@ app.include_router(complaints.router, prefix="/api/v1/complaints", tags=["compla
 app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
 app.include_router(employees.router, prefix="/api/v1/employees", tags=["employees"])
 app.include_router(websocket.router, prefix="/api/v1/ws", tags=["websocket"])
+app.include_router(photos.router, prefix="/api/v1/photos", tags=["photos"])
 
 # Статические файлы для Mini Apps
 try:

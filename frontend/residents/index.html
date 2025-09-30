@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>Мои обращения</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<style>body{font-family:sans-serif;padding:16px;background:#f5f5f5}.card{background:#fff;padding:16px;margin:12px 0;border-radius:8px}.btn{background:#0088cc;color:#fff;border:none;padding:12px;border-radius:8px;width:100%;margin-top:20px}</style>
+<style>
+body{font-family:sans-serif;padding:16px;background:#f5f5f5;margin:0}
+.card{background:#fff;padding:16px;margin:12px 0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.category{font-weight:600;margin-bottom:8px}
+.photo{max-width:100%;border-radius:8px;margin:4px 0}
+.btn{background:#0088cc;color:#fff;border:none;padding:12px;border-radius:8px;width:100%;margin-top:20px;font-size:16px}
+.status{padding:4px 8px;border-radius:8px;font-size:12px;display:inline-block;margin:8px 0}
+.status-new{background:#ffeaa7;color:#000}
+.status-in_progress{background:#74b9ff;color:#000}
+.status-resolved{background:#55efc4;color:#000}
+</style>
 </head><body><h2>📋 Мои обращения</h2><div id="list">Загрузка...</div>
 <button class="btn" onclick="window.Telegram.WebApp.close()">Закрыть</button>
 <script>
 const tg=window.Telegram.WebApp;tg.ready();tg.expand();
+const urlParams=new URLSearchParams(window.location.search);
+const userId=tg.initDataUnsafe?.user?.id||urlParams.get('user_id');
 
-// Читаем user_id из URL
-const urlParams = new URLSearchParams(window.location.search);
-const userIdFromUrl = urlParams.get('user_id');
+const statusText={
+  new:'🟡 Новое',
+  in_progress:'🔵 В работе',
+  resolved:'🟢 Решено',
+  rejected:'🔴 Отклонено'
+};
 
 async function load(){
   try{
-    // Пытаемся получить userId из Telegram или из URL
-    const userId = tg.initDataUnsafe?.user?.id || userIdFromUrl;
-    
-    console.log('User ID from Telegram:', tg.initDataUnsafe?.user?.id);
-    console.log('User ID from URL:', userIdFromUrl);
-    console.log('Final User ID:', userId);
-    
-    if(!userId){
-      document.getElementById('list').innerHTML='<div class="card">❌ Нет user ID</div>';
-      return;
-    }
-    
+    if(!userId){document.getElementById('list').innerHTML='<div class="card">❌ Нет user ID</div>';return;}
     const res=await fetch(`/api/v1/complaints/my?user_id=${userId}`);
-    console.log('Response:', res.status);
-    
-    if(!res.ok){
-      const text = await res.text();
-      document.getElementById('list').innerHTML=`<div class="card">❌ Ошибка ${res.status}: ${text}</div>`;
-      return;
-    }
-    
+    if(!res.ok){document.getElementById('list').innerHTML=`<div class="card">❌ Ошибка ${res.status}</div>`;return;}
     const data=await res.json();
-    console.log('Loaded complaints:', data.length);
+    if(data.length===0){document.getElementById('list').innerHTML='<div class="card">Нет обращений</div>';return;}
     
-    if(data.length===0){
-      document.getElementById('list').innerHTML='<div class="card">Пока нет обращений</div>';
-      return;
-    }
-    
-    document.getElementById('list').innerHTML=data.map(c=>`
-      <div class="card">
-        <strong>${c.category}</strong><br>
-        <div style="margin:8px 0;white-space:pre-wrap">${c.description}</div>
-        <small style="color:#888">${new Date(c.created_at).toLocaleString('ru-RU')}</small>
-      </div>
-    `).join('');
+    document.getElementById('list').innerHTML=data.map(c=>{
+      let html=`<div class="card"><div class="category">${c.category}</div>`;
+      
+      // Обрабатываем photos - может быть JSON array
+      if(c.photos){
+        try{
+          const photos=JSON.parse(c.photos);
+          if(Array.isArray(photos)){
+            photos.forEach(fileId=>{
+              html+=`<img class="photo" src="/api/v1/photos/${fileId}" alt="Фото">`;
+            });
+          }else{
+            html+=`<img class="photo" src="/api/v1/photos/${c.photos}" alt="Фото">`;
+          }
+        }catch(e){
+          // Если не JSON, значит один file_id
+          html+=`<img class="photo" src="/api/v1/photos/${c.photos}" alt="Фото">`;
+        }
+      }
+      
+      html+=`<div style="margin:8px 0;white-space:pre-wrap">${c.description||''}</div>`;
+      html+=`<div class="status status-${c.status}">${statusText[c.status]||c.status}</div>`;
+      html+=`<div style="color:#888;font-size:12px;margin-top:8px">${new Date(c.created_at).toLocaleString('ru-RU')}</div>`;
+      html+=`</div>`;
+      return html;
+    }).join('');
   }catch(e){
-    console.error('Error:', e);
+    console.error(e);
     document.getElementById('list').innerHTML=`<div class="card">❌ Ошибка: ${e.message}</div>`;
   }
 }
