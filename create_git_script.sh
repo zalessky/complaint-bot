@@ -1,4 +1,6 @@
 #!/bin/bash
+cat > push_to_github.sh << 'SCRIPTEOF'
+#!/bin/bash
 set -e
 echo "🚀 Выгрузка v0.8.2"
 echo ""
@@ -19,3 +21,6 @@ git push --tags
 echo ""
 echo "✅ Готово!"
 git remote get-url origin
+SCRIPTEOF
+chmod +x push_to_github.sh
+echo "✅ Скрипт создан: push_to_github.sh"
