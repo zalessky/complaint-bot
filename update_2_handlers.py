@@ -1,4 +1,11 @@
-from aiogram import Router, types, F
+#!/usr/bin/env python3
+"""
+Обновление 2: Handlers с поддержкой телефона, фото и обязательных полей
+"""
+print("📦 Обновление 2: Обработчики жалоб")
+print("="*60)
+
+complaint_handler = '''from aiogram import Router, types, F
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, WebAppInfo
@@ -282,7 +289,7 @@ async def finish_complaint(message: types.Message, state: FSMContext):
             if complaint_data.get('contact_phone'):
                 full_description_parts.append(f"📱 Телефон: {complaint_data['contact_phone']}")
             
-            full_description = "\n".join(full_description_parts)
+            full_description = "\\n".join(full_description_parts)
             
             complaint = await crud.create_complaint(
                 db,
@@ -304,7 +311,7 @@ async def finish_complaint(message: types.Message, state: FSMContext):
         traceback.print_exc()
     
     # Формируем сообщение
-    text_parts = [f"✅ Обращение #{complaint_id} принято!\n"]
+    text_parts = [f"✅ Обращение #{complaint_id} принято!\\n"]
     text_parts.append(f"📂 Категория: {complaint_data['category']}")
     text_parts.append(f"🔖 Тип: {complaint_data['subcategory']}")
     
@@ -321,10 +328,10 @@ async def finish_complaint(message: types.Message, state: FSMContext):
     if complaint_data.get('photos'):
         text_parts.append("📷 Фото прикреплено")
     
-    text_parts.append("\nМы рассмотрим вашу жалобу в ближайшее время.")
+    text_parts.append("\\nМы рассмотрим вашу жалобу в ближайшее время.")
     text_parts.append("Отслеживайте статус в разделе 📋 Мои обращения")
     
-    text = "\n".join(text_parts)
+    text = "\\n".join(text_parts)
     
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
@@ -344,56 +351,27 @@ async def finish_complaint(message: types.Message, state: FSMContext):
 @router.message(F.text == "ℹ️ Помощь")
 async def help_command(message: types.Message):
     categories = categories_manager.get_categories()
-    categories_text = "\n".join([f"• {cat}" for cat in categories[:5]])
+    categories_text = "\\n".join([f"• {cat}" for cat in categories[:5]])
     
     await message.answer(
-        f"ℹ️ Как использовать бот:\n\n"
-        f"📝 Подать жалобу - создать новое обращение\n"
-        f"📋 Мои обращения - посмотреть историю в Mini App\n"
-        f"ℹ️ Помощь - это сообщение\n\n"
-        f"📂 Доступные категории:\n{categories_text}\n...и другие (всего {len(categories)})\n\n"
+        f"ℹ️ Как использовать бот:\\n\\n"
+        f"📝 Подать жалобу - создать новое обращение\\n"
+        f"📋 Мои обращения - посмотреть историю в Mini App\\n"
+        f"ℹ️ Помощь - это сообщение\\n\\n"
+        f"📂 Доступные категории:\\n{categories_text}\\n...и другие (всего {len(categories)})\\n\\n"
         f"Выберите категорию и следуйте инструкциям бота."
     )
+'''
 
-@router.message(F.text == "✅ Благодарность")
-async def start_gratitude(message: types.Message, state: FSMContext):
-    """Благодарность - без адреса, только текст"""
-    await state.update_data(
-        category="✅ Благодарность",
-        subcategory="✅ Благодарность",
-        telegram_id=message.from_user.id,
-        username=message.from_user.username,
-        first_name=message.from_user.first_name,
-        is_gratitude=True
-    )
-    
-    await message.answer(
-        "✅ Кого вы хотите поблагодарить? Опишите подробно:",
-        reply_markup=ReplyKeyboardRemove()
-    )
-    await state.set_state(ComplaintForm.dynamic_field)
-    await state.update_data(current_field_name='description')
+# Сохраняем файл
+with open("bot/handlers/complaint.py", "w", encoding="utf-8") as f:
+    f.write(complaint_handler)
 
-@router.message(F.text == "💬 Обратная связь")
-async def start_feedback(message: types.Message, state: FSMContext):
-    """Обратная связь - предложение или ошибка"""
-    from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-    
-    keyboard = ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text="💡 Предложение по улучшению")],
-            [KeyboardButton(text="🐛 Сообщить об ошибке")]
-        ],
-        resize_keyboard=True
-    )
-    
-    await state.update_data(
-        category="📢 Обратная связь",
-        telegram_id=message.from_user.id,
-        username=message.from_user.username,
-        first_name=message.from_user.first_name,
-        is_feedback=True
-    )
-    
-    await message.answer("Выберите тип обратной связи:", reply_markup=keyboard)
-    await state.set_state(ComplaintForm.subcategory)
+print("✅ Обновлен bot/handlers/complaint.py")
+print("  • Поддержка телефона через request_contact")
+print("  • Поддержка фото с сохранением file_id")
+print("  • Обязательные и необязательные поля")
+print("  • Все 15 категорий доступны")
+print()
+print("="*60)
+print("✅ Обновление 2 завершено!")

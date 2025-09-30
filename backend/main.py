@@ -2,6 +2,7 @@ import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from backend.core.config import settings
 from backend.db.database import init_db
 from backend.api.v1 import auth, complaints, users, employees, websocket
@@ -27,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Городской помощник API",
     description="Backend для Telegram бота и Web Apps",
-    version="0.7.0",
+    version="0.7.1",
     lifespan=lifespan
 )
 
@@ -45,16 +46,17 @@ app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
 app.include_router(employees.router, prefix="/api/v1/employees", tags=["employees"])
 app.include_router(websocket.router, prefix="/api/v1/ws", tags=["websocket"])
 
+# Статические файлы для Mini Apps
 try:
     from fastapi.staticfiles import StaticFiles
     app.mount("/webapp/residents", StaticFiles(directory="frontend/residents", html=True), name="residents")
     app.mount("/webapp/services", StaticFiles(directory="frontend/services", html=True), name="services")
-except:
-    pass
+except Exception as e:
+    logger.warning(f"⚠️  Не удалось подключить статические файлы: {e}")
 
 @app.get("/")
 async def root():
-    return {"name": "Городской помощник API", "version": "0.7.0", "status": "running", "docs": "/docs"}
+    return {"name": "Городской помощник API", "version": "0.7.1", "status": "running", "docs": "/docs"}
 
 @app.get("/health")
 async def health_check():
@@ -63,7 +65,6 @@ async def health_check():
 if __name__ == "__main__":
     import uvicorn
     
-    # Если есть SSL сертификаты - запускаем HTTPS
     if settings.SSL_CERT_PATH and settings.SSL_KEY_PATH:
         uvicorn.run(
             "backend.main:app",

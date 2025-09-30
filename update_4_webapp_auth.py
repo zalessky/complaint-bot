@@ -1,4 +1,12 @@
-import hmac
+#!/usr/bin/env python3
+"""
+Обновление 4: Исправление авторизации Mini App
+"""
+print("📦 Обновление 4: Авторизация Mini App")
+print("="*60)
+
+# Упрощенная security для работы с Telegram Mini Apps
+security_py = '''import hmac
 import hashlib
 import json
 from urllib.parse import parse_qs, unquote
@@ -26,7 +34,7 @@ def validate_telegram_init_data(init_data: str, bot_token: str) -> dict:
                 for value in values:
                     data_check_arr.append(f"{key}={value}")
         
-        data_check_string = "\n".join(data_check_arr)
+        data_check_string = "\\n".join(data_check_arr)
         
         # Создаем secret key
         secret_key = hmac.new(
@@ -71,3 +79,49 @@ def get_current_user_id(init_data: Optional[str] = Header(None, alias="X-Telegra
     
     user = validate_telegram_init_data(init_data, bot_token)
     return user.get('id')
+'''
+
+with open("backend/core/security.py", "w", encoding="utf-8") as f:
+    f.write(security_py)
+
+print("✅ Обновлен backend/core/security.py")
+print("  • Правильная валидация Telegram initData")
+print("  • Поддержка hash verification")
+
+# Обновляем dependencies для использования новой security
+dependencies_py = '''from fastapi import Depends, Header, HTTPException
+from typing import Optional
+from backend.core.config import settings
+from backend.core.security import get_current_user_id
+
+async def get_current_user(
+    init_data: Optional[str] = Header(None, alias="X-Telegram-Init-Data")
+) -> int:
+    """
+    Dependency для получения текущего пользователя
+    """
+    return get_current_user_id(init_data, settings.BOT_TOKEN)
+
+async def get_current_admin(
+    user_id: int = Depends(get_current_user)
+) -> int:
+    """
+    Dependency для проверки прав администратора
+    """
+    if user_id not in settings.admin_ids_list and user_id != settings.SUPER_ADMIN_ID:
+        raise HTTPException(status_code=403, detail="Access denied")
+    return user_id
+'''
+
+with open("backend/core/dependencies.py", "w", encoding="utf-8") as f:
+    f.write(dependencies_py)
+
+print("✅ Обновлен backend/core/dependencies.py")
+
+print("\n" + "="*60)
+print("✅ Обновление 4 завершено!")
+print("\n📝 Перезапустите backend:")
+print("  bash stop_app.sh")
+print("  bash start_app.sh")
+print("\nИли в режиме отладки:")
+print("  PYTHONPATH=. poetry run python backend/main.py")
