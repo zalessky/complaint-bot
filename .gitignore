@@ -1,28 +1,15 @@
-# ## Файлы с секретами - НИКОГДА НЕ ПУБЛИКОВАТЬ! ##
 .env
-
-# ## Базы данных и директория с данными ##
-/data/
-*.db
-*.sqlite3
-
-# ## Файлы логов и процессов ##
-bot.log
-bot.pid
-
-# ## Генерируемые файлы (отчеты, выгрузки) ##
-export_complaints.csv
-categories.csv
-
-# ## Системные файлы Python ##
+.env.*
+!.env.example
 __pycache__/
-*.pyc
-
-# ## Файлы виртуального окружения Poetry ##
-.venv/
-poetry.lock
-
-# ## Системные файлы ОС и редакторов кода ##
-.DS_Store
-.idea/
+*.py[cod]
+*.sqlite3
+*.db
+logs/
+node_modules/
+dist/
 .vscode/
+.idea/
+venv/
+.venv/
+export_*.csv

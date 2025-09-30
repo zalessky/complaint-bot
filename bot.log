@@ -1,0 +1,332 @@
+2025-09-26 17:53:44,365 - INFO - __main__ - Databases initialized.
+2025-09-26 17:53:44,366 - INFO - utils.db - Synced 1 superadmins into the database.
+2025-09-26 17:53:44,366 - INFO - __main__ - Superadmins synchronized.
+2025-09-26 17:53:44,366 - INFO - __main__ - Starting bot…
+2025-09-26 17:53:44,381 - INFO - aiogram.dispatcher - Start polling
+2025-09-26 17:53:44,397 - INFO - aiogram.dispatcher - Run polling for bot @eng_bus_bot id=8414846189 - 'Бот для обратной связи с муниципальными службами Энгельса'
+2025-09-26 17:53:52,106 - INFO - aiogram.event - Update id=581043472 is handled. Duration 106 ms by bot id=8414846189
+2025-09-26 18:05:01,755 - INFO - aiogram.event - Update id=581043473 is handled. Duration 901 ms by bot id=8414846189
+2025-09-26 18:31:37,629 - INFO - aiogram.event - Update id=581043474 is handled. Duration 851 ms by bot id=8414846189
+2025-09-26 18:31:41,898 - INFO - aiogram.event - Update id=581043475 is handled. Duration 242 ms by bot id=8414846189
+2025-09-26 18:31:44,784 - INFO - aiogram.event - Update id=581043476 is handled. Duration 157 ms by bot id=8414846189
+2025-09-26 18:40:55,556 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-26 18:40:55,628 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-26 18:41:06,944 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-26 18:46:26,037 - INFO - aiogram.event - Update id=581043477 is handled. Duration 562 ms by bot id=8414846189
+2025-09-26 19:12:29,157 - INFO - aiogram.event - Update id=581043478 is handled. Duration 972 ms by bot id=8414846189
+2025-09-26 19:12:31,559 - INFO - aiogram.event - Update id=581043479 is handled. Duration 611 ms by bot id=8414846189
+2025-09-26 19:29:08,765 - INFO - aiogram.event - Update id=581043480 is handled. Duration 1411 ms by bot id=8414846189
+2025-09-26 19:40:04,383 - INFO - aiogram.event - Update id=581043481 is handled. Duration 1435 ms by bot id=8414846189
+2025-09-26 19:40:06,169 - INFO - aiogram.event - Update id=581043482 is handled. Duration 495 ms by bot id=8414846189
+2025-09-26 19:50:46,487 - INFO - aiogram.event - Update id=581043483 is handled. Duration 140 ms by bot id=8414846189
+2025-09-26 19:50:48,514 - INFO - aiogram.event - Update id=581043484 is handled. Duration 611 ms by bot id=8414846189
+2025-09-26 20:22:18,792 - INFO - aiogram.event - Update id=581043485 is handled. Duration 637 ms by bot id=8414846189
+2025-09-26 20:25:31,935 - INFO - aiogram.event - Update id=581043486 is handled. Duration 103 ms by bot id=8414846189
+2025-09-26 20:25:46,825 - INFO - aiogram.event - Update id=581043487 is handled. Duration 1165 ms by bot id=8414846189
+2025-09-26 20:25:54,900 - INFO - aiogram.event - Update id=581043488 is handled. Duration 42 ms by bot id=8414846189
+2025-09-26 20:25:59,100 - INFO - aiogram.event - Update id=581043489 is handled. Duration 47 ms by bot id=8414846189
+2025-09-26 20:26:04,141 - INFO - aiogram.event - Update id=581043490 is handled. Duration 45 ms by bot id=8414846189
+2025-09-26 20:26:07,515 - INFO - aiogram.event - Update id=581043491 is handled. Duration 137 ms by bot id=8414846189
+2025-09-26 20:26:11,426 - INFO - aiogram.event - Update id=581043492 is handled. Duration 41 ms by bot id=8414846189
+2025-09-26 20:26:13,056 - INFO - aiogram.event - Update id=581043493 is handled. Duration 98 ms by bot id=8414846189
+2025-09-26 20:26:17,901 - INFO - aiogram.event - Update id=581043494 is handled. Duration 211 ms by bot id=8414846189
+2025-09-26 20:26:26,627 - INFO - aiogram.event - Update id=581043495 is handled. Duration 53 ms by bot id=8414846189
+2025-09-26 20:26:31,917 - INFO - aiogram.event - Update id=581043496 is handled. Duration 65 ms by bot id=8414846189
+2025-09-26 20:35:32,636 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-26 20:35:32,669 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-26 20:35:38,700 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-26 20:35:39,418 - INFO - aiogram.event - Update id=581043497 is handled. Duration 708 ms by bot id=8414846189
+2025-09-26 20:35:40,705 - INFO - aiogram.event - Update id=581043498 is handled. Duration 107 ms by bot id=8414846189
+2025-09-26 20:35:43,716 - INFO - aiogram.event - Update id=581043499 is handled. Duration 619 ms by bot id=8414846189
+2025-09-26 20:37:39,712 - INFO - aiogram.event - Update id=581043500 is handled. Duration 113 ms by bot id=8414846189
+2025-09-26 20:40:47,725 - INFO - aiogram.event - Update id=581043501 is handled. Duration 332 ms by bot id=8414846189
+2025-09-26 20:48:33,472 - INFO - aiogram.event - Update id=581043502 is handled. Duration 139 ms by bot id=8414846189
+2025-09-26 21:00:27,398 - INFO - aiogram.event - Update id=581043503 is handled. Duration 712 ms by bot id=8414846189
+2025-09-27 04:12:54,475 - INFO - aiogram.event - Update id=581043504 is handled. Duration 858 ms by bot id=8414846189
+2025-09-27 04:13:23,243 - INFO - aiogram.event - Update id=581043505 is handled. Duration 113 ms by bot id=8414846189
+2025-09-27 04:13:52,353 - INFO - aiogram.event - Update id=581043506 is handled. Duration 82 ms by bot id=8414846189
+2025-09-27 04:54:00,867 - INFO - aiogram.event - Update id=581043507 is handled. Duration 457 ms by bot id=8414846189
+2025-09-27 05:15:07,746 - INFO - aiogram.event - Update id=581043508 is handled. Duration 261 ms by bot id=8414846189
+2025-09-27 05:15:11,145 - INFO - aiogram.event - Update id=581043509 is handled. Duration 51 ms by bot id=8414846189
+2025-09-27 05:15:31,781 - INFO - aiogram.event - Update id=581043510 is handled. Duration 74 ms by bot id=8414846189
+2025-09-27 05:15:33,456 - INFO - aiogram.event - Update id=581043511 is handled. Duration 100 ms by bot id=8414846189
+2025-09-27 05:17:08,757 - INFO - aiogram.event - Update id=581043512 is handled. Duration 117 ms by bot id=8414846189
+2025-09-27 05:17:12,605 - INFO - aiogram.event - Update id=581043513 is handled. Duration 165 ms by bot id=8414846189
+2025-09-27 05:17:21,215 - INFO - aiogram.event - Update id=581043514 is handled. Duration 421 ms by bot id=8414846189
+2025-09-27 05:17:43,322 - INFO - aiogram.event - Update id=581043515 is handled. Duration 106 ms by bot id=8414846189
+2025-09-27 05:17:46,345 - INFO - aiogram.event - Update id=581043516 is handled. Duration 85 ms by bot id=8414846189
+2025-09-27 05:20:21,399 - INFO - aiogram.event - Update id=581043517 is handled. Duration 170 ms by bot id=8414846189
+2025-09-27 05:30:46,254 - INFO - aiogram.event - Update id=581043518 is handled. Duration 951 ms by bot id=8414846189
+2025-09-27 05:30:50,210 - INFO - aiogram.event - Update id=581043519 is handled. Duration 121 ms by bot id=8414846189
+2025-09-27 05:31:20,773 - INFO - aiogram.event - Update id=581043520 is handled. Duration 72 ms by bot id=8414846189
+2025-09-27 05:31:30,226 - INFO - aiogram.event - Update id=581043521 is handled. Duration 107 ms by bot id=8414846189
+2025-09-27 05:31:51,354 - INFO - aiogram.event - Update id=581043522 is handled. Duration 1708 ms by bot id=8414846189
+2025-09-27 05:32:00,608 - INFO - aiogram.event - Update id=581043523 is handled. Duration 365 ms by bot id=8414846189
+2025-09-27 06:12:34,246 - INFO - aiogram.event - Update id=581043525 is handled. Duration 518 ms by bot id=8414846189
+2025-09-27 06:12:34,446 - INFO - aiogram.event - Update id=581043524 is handled. Duration 1044 ms by bot id=8414846189
+2025-09-27 06:12:52,425 - INFO - aiogram.event - Update id=581043526 is handled. Duration 128 ms by bot id=8414846189
+2025-09-27 06:49:52,197 - INFO - aiogram.event - Update id=581043527 is handled. Duration 876 ms by bot id=8414846189
+2025-09-27 06:49:53,665 - INFO - aiogram.event - Update id=581043528 is handled. Duration 130 ms by bot id=8414846189
+2025-09-27 06:59:25,911 - INFO - aiogram.event - Update id=581043529 is handled. Duration 659 ms by bot id=8414846189
+2025-09-27 07:49:04,969 - INFO - aiogram.event - Update id=581043530 is handled. Duration 952 ms by bot id=8414846189
+2025-09-27 08:21:17,140 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-27 08:21:17,202 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-27 08:21:28,327 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-27 09:36:25,827 - INFO - aiogram.event - Update id=581043531 is handled. Duration 1088 ms by bot id=8414846189
+2025-09-27 13:46:49,291 - INFO - aiogram.event - Update id=581043532 is handled. Duration 819 ms by bot id=8414846189
+2025-09-27 13:46:52,943 - INFO - aiogram.event - Update id=581043533 is handled. Duration 103 ms by bot id=8414846189
+2025-09-27 13:47:15,308 - INFO - aiogram.event - Update id=581043534 is handled. Duration 721 ms by bot id=8414846189
+2025-09-27 13:47:41,295 - INFO - aiogram.event - Update id=581043535 is handled. Duration 89 ms by bot id=8414846189
+2025-09-27 13:47:54,712 - INFO - aiogram.event - Update id=581043536 is handled. Duration 54 ms by bot id=8414846189
+2025-09-27 13:48:35,837 - INFO - aiogram.event - Update id=581043537 is handled. Duration 84 ms by bot id=8414846189
+2025-09-27 13:48:44,423 - INFO - aiogram.event - Update id=581043538 is handled. Duration 157 ms by bot id=8414846189
+2025-09-27 13:48:54,453 - INFO - aiogram.event - Update id=581043539 is handled. Duration 41 ms by bot id=8414846189
+2025-09-27 13:48:58,636 - INFO - aiogram.event - Update id=581043540 is handled. Duration 167 ms by bot id=8414846189
+2025-09-27 13:49:04,288 - INFO - aiogram.event - Update id=581043541 is handled. Duration 276 ms by bot id=8414846189
+2025-09-27 13:49:08,637 - INFO - aiogram.event - Update id=581043542 is handled. Duration 160 ms by bot id=8414846189
+2025-09-27 13:49:22,724 - INFO - aiogram.event - Update id=581043543 is handled. Duration 278 ms by bot id=8414846189
+2025-09-27 13:50:31,021 - INFO - aiogram.event - Update id=581043544 is handled. Duration 186 ms by bot id=8414846189
+2025-09-27 13:50:44,437 - INFO - aiogram.event - Update id=581043545 is handled. Duration 35 ms by bot id=8414846189
+2025-09-27 13:51:37,650 - INFO - aiogram.event - Update id=581043546 is handled. Duration 34 ms by bot id=8414846189
+2025-09-27 13:52:03,205 - INFO - aiogram.event - Update id=581043547 is handled. Duration 5 ms by bot id=8414846189
+2025-09-27 13:52:03,205 - INFO - aiogram.event - Update id=581043548 is handled. Duration 4 ms by bot id=8414846189
+2025-09-27 13:52:05,546 - INFO - aiogram.event - Update id=581043549 is handled. Duration 44 ms by bot id=8414846189
+2025-09-27 13:52:11,422 - INFO - aiogram.event - Update id=581043550 is handled. Duration 85 ms by bot id=8414846189
+2025-09-27 13:52:14,420 - INFO - aiogram.event - Update id=581043551 is handled. Duration 260 ms by bot id=8414846189
+2025-09-27 13:52:18,330 - INFO - aiogram.event - Update id=581043552 is handled. Duration 405 ms by bot id=8414846189
+2025-09-27 15:48:34,851 - INFO - aiogram.event - Update id=581043553 is handled. Duration 871 ms by bot id=8414846189
+2025-09-27 18:24:07,517 - INFO - aiogram.event - Update id=581043554 is handled. Duration 1530 ms by bot id=8414846189
+2025-09-27 18:24:12,742 - INFO - aiogram.event - Update id=581043555 is handled. Duration 117 ms by bot id=8414846189
+2025-09-27 18:24:17,061 - INFO - aiogram.event - Update id=581043556 is handled. Duration 1477 ms by bot id=8414846189
+2025-09-27 18:24:22,024 - INFO - aiogram.event - Update id=581043557 is handled. Duration 332 ms by bot id=8414846189
+2025-09-27 18:25:22,356 - INFO - aiogram.event - Update id=581043558 is handled. Duration 108 ms by bot id=8414846189
+2025-09-27 18:25:36,751 - INFO - aiogram.event - Update id=581043559 is handled. Duration 10552 ms by bot id=8414846189
+2025-09-27 18:27:21,137 - INFO - aiogram.event - Update id=581043560 is handled. Duration 4153 ms by bot id=8414846189
+2025-09-27 18:27:22,711 - INFO - aiogram.event - Update id=581043561 is handled. Duration 244 ms by bot id=8414846189
+2025-09-27 18:45:59,547 - INFO - aiogram.event - Update id=581043562 is handled. Duration 718 ms by bot id=8414846189
+2025-09-27 18:46:30,048 - INFO - aiogram.event - Update id=581043563 is handled. Duration 253 ms by bot id=8414846189
+2025-09-27 18:46:34,246 - INFO - aiogram.event - Update id=581043564 is handled. Duration 1260 ms by bot id=8414846189
+2025-09-27 18:46:40,065 - INFO - aiogram.event - Update id=581043565 is handled. Duration 178 ms by bot id=8414846189
+2025-09-27 18:46:45,789 - INFO - aiogram.event - Update id=581043566 is handled. Duration 90 ms by bot id=8414846189
+2025-09-27 18:46:47,637 - INFO - aiogram.event - Update id=581043567 is handled. Duration 397 ms by bot id=8414846189
+2025-09-27 18:52:22,511 - INFO - aiogram.event - Update id=581043568 is handled. Duration 689 ms by bot id=8414846189
+2025-09-27 19:19:53,996 - INFO - aiogram.event - Update id=581043569 is handled. Duration 1699 ms by bot id=8414846189
+2025-09-27 19:19:56,404 - INFO - aiogram.event - Update id=581043570 is handled. Duration 127 ms by bot id=8414846189
+2025-09-27 19:20:03,764 - INFO - aiogram.event - Update id=581043571 is handled. Duration 144 ms by bot id=8414846189
+2025-09-27 19:20:15,704 - INFO - aiogram.event - Update id=581043572 is handled. Duration 203 ms by bot id=8414846189
+2025-09-27 19:20:32,663 - INFO - aiogram.event - Update id=581043573 is handled. Duration 49 ms by bot id=8414846189
+2025-09-27 19:20:51,239 - INFO - aiogram.event - Update id=581043574 is handled. Duration 57 ms by bot id=8414846189
+2025-09-27 19:20:59,316 - INFO - aiogram.event - Update id=581043575 is handled. Duration 166 ms by bot id=8414846189
+2025-09-27 19:21:06,399 - INFO - aiogram.event - Update id=581043576 is handled. Duration 69 ms by bot id=8414846189
+2025-09-27 19:21:09,356 - INFO - aiogram.event - Update id=581043577 is handled. Duration 262 ms by bot id=8414846189
+2025-09-27 19:21:11,992 - INFO - aiogram.event - Update id=581043578 is handled. Duration 707 ms by bot id=8414846189
+2025-09-27 19:21:17,571 - INFO - aiogram.event - Update id=581043579 is handled. Duration 75 ms by bot id=8414846189
+2025-09-27 19:21:30,247 - INFO - aiogram.event - Update id=581043580 is handled. Duration 261 ms by bot id=8414846189
+2025-09-27 19:21:34,248 - INFO - aiogram.event - Update id=581043581 is handled. Duration 73 ms by bot id=8414846189
+2025-09-27 19:21:46,322 - INFO - aiogram.event - Update id=581043582 is handled. Duration 38 ms by bot id=8414846189
+2025-09-27 19:22:47,785 - INFO - aiogram.event - Update id=581043583 is handled. Duration 194 ms by bot id=8414846189
+2025-09-27 19:24:46,819 - INFO - aiogram.event - Update id=581043584 is not handled. Duration 245 ms by bot id=8414846189
+2025-09-27 19:24:48,775 - INFO - aiogram.event - Update id=581043585 is handled. Duration 142 ms by bot id=8414846189
+2025-09-27 19:24:55,339 - INFO - aiogram.event - Update id=581043586 is handled. Duration 221 ms by bot id=8414846189
+2025-09-27 19:24:58,475 - INFO - aiogram.event - Update id=581043587 is handled. Duration 377 ms by bot id=8414846189
+2025-09-27 19:25:02,424 - INFO - aiogram.event - Update id=581043588 is handled. Duration 483 ms by bot id=8414846189
+2025-09-27 19:25:08,687 - INFO - aiogram.event - Update id=581043589 is handled. Duration 197 ms by bot id=8414846189
+2025-09-27 19:25:13,756 - INFO - aiogram.event - Update id=581043590 is handled. Duration 239 ms by bot id=8414846189
+2025-09-27 19:25:22,714 - INFO - aiogram.event - Update id=581043591 is handled. Duration 140 ms by bot id=8414846189
+2025-09-27 19:25:38,891 - INFO - aiogram.event - Update id=581043592 is handled. Duration 457 ms by bot id=8414846189
+2025-09-27 19:25:53,389 - INFO - aiogram.event - Update id=581043593 is not handled. Duration 22 ms by bot id=8414846189
+2025-09-27 19:25:53,392 - ERROR - aiogram.event - Cause exception while process update id=581043593 by bot id=8414846189
+AttributeError: 'NoneType' object has no attribute 'strip'
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/pypoetry/virtualenvs/city-issues-bot-SqVZ3QPx-py3.11/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/root/g_bot/city-issues-bot/handlers/complaint_wizard.py", line 176, in set_description
+    desc = message.text.strip()
+           ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+2025-09-27 19:26:49,062 - INFO - aiogram.event - Update id=581043594 is handled. Duration 96 ms by bot id=8414846189
+2025-09-27 19:27:03,344 - INFO - aiogram.event - Update id=581043595 is not handled. Duration 18 ms by bot id=8414846189
+2025-09-27 19:27:05,667 - INFO - aiogram.event - Update id=581043596 is handled. Duration 72 ms by bot id=8414846189
+2025-09-27 19:27:11,514 - INFO - aiogram.event - Update id=581043597 is handled. Duration 37 ms by bot id=8414846189
+2025-09-27 19:27:13,817 - INFO - aiogram.event - Update id=581043598 is handled. Duration 71 ms by bot id=8414846189
+2025-09-27 19:27:15,628 - INFO - aiogram.event - Update id=581043599 is handled. Duration 181 ms by bot id=8414846189
+2025-09-27 19:27:17,932 - INFO - aiogram.event - Update id=581043600 is handled. Duration 109 ms by bot id=8414846189
+2025-09-27 19:27:26,213 - INFO - aiogram.event - Update id=581043601 is handled. Duration 79 ms by bot id=8414846189
+2025-09-27 19:27:56,035 - INFO - aiogram.event - Update id=581043602 is handled. Duration 39 ms by bot id=8414846189
+2025-09-27 19:28:04,459 - INFO - aiogram.event - Update id=581043603 is handled. Duration 37 ms by bot id=8414846189
+2025-09-27 19:28:06,743 - INFO - aiogram.event - Update id=581043604 is handled. Duration 226 ms by bot id=8414846189
+2025-09-27 19:28:08,811 - INFO - aiogram.event - Update id=581043605 is handled. Duration 528 ms by bot id=8414846189
+2025-09-27 19:28:16,982 - INFO - aiogram.event - Update id=581043606 is handled. Duration 46 ms by bot id=8414846189
+2025-09-27 19:28:19,830 - INFO - aiogram.event - Update id=581043607 is handled. Duration 391 ms by bot id=8414846189
+2025-09-27 19:28:37,554 - INFO - aiogram.event - Update id=581043608 is handled. Duration 74 ms by bot id=8414846189
+2025-09-27 19:28:49,858 - INFO - aiogram.event - Update id=581043609 is handled. Duration 42 ms by bot id=8414846189
+2025-09-27 19:28:53,761 - INFO - aiogram.event - Update id=581043610 is handled. Duration 40 ms by bot id=8414846189
+2025-09-27 19:29:00,340 - INFO - aiogram.event - Update id=581043611 is handled. Duration 50 ms by bot id=8414846189
+2025-09-27 19:29:03,308 - INFO - aiogram.event - Update id=581043612 is handled. Duration 580 ms by bot id=8414846189
+2025-09-27 19:29:05,293 - INFO - aiogram.event - Update id=581043613 is handled. Duration 529 ms by bot id=8414846189
+2025-09-27 19:31:38,714 - INFO - aiogram.event - Update id=581043614 is handled. Duration 184 ms by bot id=8414846189
+2025-09-27 19:31:40,756 - INFO - aiogram.event - Update id=581043615 is handled. Duration 191 ms by bot id=8414846189
+2025-09-27 19:31:44,601 - INFO - aiogram.event - Update id=581043616 is handled. Duration 128 ms by bot id=8414846189
+2025-09-27 20:17:02,263 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-27 20:17:02,354 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-27 20:17:13,465 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-27 22:04:44,244 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-27 22:04:44,368 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-27 22:04:55,471 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-27 22:32:19,744 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-27 22:32:19,748 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-27 22:32:30,786 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-27 23:40:55,895 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-27 23:40:55,927 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-27 23:41:07,024 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 00:20:11,767 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 00:20:11,769 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 00:20:22,823 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 02:01:33,171 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 02:01:33,205 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 02:01:44,277 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 02:41:27,120 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 02:41:27,123 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 02:41:38,172 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 02:59:09,867 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 02:59:09,869 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 02:59:20,915 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 04:01:36,346 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 04:01:36,376 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 04:01:47,447 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 06:10:01,796 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 06:10:01,818 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 06:10:12,891 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 06:41:18,603 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 06:41:18,679 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 06:41:29,846 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 07:59:17,854 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 07:59:17,943 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 07:59:29,313 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 08:00:18,756 - INFO - aiogram.event - Update id=581043617 is handled. Duration 822 ms by bot id=8414846189
+2025-09-28 08:00:31,983 - INFO - aiogram.event - Update id=581043618 is handled. Duration 110 ms by bot id=8414846189
+2025-09-28 08:48:49,567 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 08:48:49,666 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 08:49:01,076 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 09:56:32,251 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 09:56:32,270 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 09:56:43,313 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 10:31:47,359 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 10:31:47,389 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 10:31:58,465 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 10:51:50,544 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 10:51:50,554 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 10:52:01,609 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 11:09:02,962 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 11:09:02,963 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 11:09:14,000 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 12:54:47,756 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 12:54:47,781 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 12:54:58,853 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 14:49:23,688 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 14:49:23,747 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 14:49:34,854 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 16:24:33,030 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 16:24:33,131 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 16:24:44,518 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 16:53:50,032 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 16:53:50,132 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 16:54:01,454 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 20:05:09,399 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 20:05:09,526 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 20:05:20,947 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 20:11:51,556 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 20:11:51,557 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 20:12:02,610 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-28 21:25:55,117 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-28 21:25:55,207 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-28 21:26:06,369 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-29 04:46:55,820 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-29 04:46:55,860 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-29 04:47:06,947 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-29 07:02:28,633 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-29 07:02:28,679 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-29 07:02:39,758 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-29 08:51:09,486 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-29 08:51:09,532 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-29 08:51:20,613 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-29 11:08:25,753 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-29 11:08:25,788 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-29 11:08:36,867 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-29 15:37:48,289 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-29 15:37:48,325 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-29 15:37:59,404 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-29 20:11:50,977 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-29 20:11:51,028 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-29 20:12:02,129 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-30 05:02:40,153 - INFO - aiogram.event - Update id=581043619 is handled. Duration 589 ms by bot id=8414846189
+2025-09-30 05:02:41,498 - INFO - aiogram.event - Update id=581043620 is handled. Duration 278 ms by bot id=8414846189
+2025-09-30 05:03:03,584 - INFO - aiogram.event - Update id=581043621 is handled. Duration 89 ms by bot id=8414846189
+2025-09-30 05:03:07,496 - INFO - aiogram.event - Update id=581043622 is handled. Duration 598 ms by bot id=8414846189
+2025-09-30 05:03:10,985 - INFO - aiogram.event - Update id=581043623 is handled. Duration 73 ms by bot id=8414846189
+2025-09-30 05:03:18,868 - INFO - aiogram.event - Update id=581043624 is handled. Duration 79 ms by bot id=8414846189
+2025-09-30 05:03:24,599 - INFO - aiogram.event - Update id=581043625 is handled. Duration 73 ms by bot id=8414846189
+2025-09-30 05:03:36,860 - INFO - aiogram.event - Update id=581043626 is handled. Duration 67 ms by bot id=8414846189
+2025-09-30 05:03:39,778 - INFO - aiogram.event - Update id=581043627 is handled. Duration 127 ms by bot id=8414846189
+2025-09-30 05:03:48,764 - INFO - aiogram.event - Update id=581043628 is handled. Duration 72 ms by bot id=8414846189
+2025-09-30 05:03:55,153 - INFO - aiogram.event - Update id=581043629 is handled. Duration 152 ms by bot id=8414846189
+2025-09-30 05:04:10,262 - INFO - aiogram.event - Update id=581043630 is handled. Duration 83 ms by bot id=8414846189
+2025-09-30 05:04:11,594 - INFO - aiogram.event - Update id=581043631 is handled. Duration 59 ms by bot id=8414846189
+2025-09-30 05:11:22,187 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-30 05:11:22,199 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-30 05:11:33,221 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-30 06:56:03,519 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-30 06:56:03,607 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-30 06:56:14,740 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-30 09:17:39,454 - ERROR - aiogram.dispatcher - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2025-09-30 09:17:39,552 - WARNING - aiogram.dispatcher - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8414846189)
+2025-09-30 09:17:50,664 - INFO - aiogram.dispatcher - Connection established (tryings = 1, bot id = 8414846189)
+2025-09-30 10:28:27,314 - WARNING - aiogram.dispatcher - Received SIGTERM signal
+2025-09-30 10:28:27,512 - INFO - aiogram.dispatcher - Polling stopped for bot @eng_bus_bot id=8414846189 - 'Бот для обратной связи с муниципальными службами Энгельса'
+2025-09-30 10:28:27,535 - INFO - aiogram.dispatcher - Polling stopped
